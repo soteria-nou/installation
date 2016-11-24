@@ -19,7 +19,18 @@ Izvedba mora biti uporabniku prijazna.
 
 ## Izvedba
 
+Trenutno izvedbo sestavljajo pravila, ki nastavljajo požarni zid, strežnik za DNS in HTTP posrednika. Programska oprema in pravila so javno dostopna in tako omogočajo vpogled v delovanje. V nasprotju z uveljavljenimi rešitvami, kot so adblock razširitve za brskalnik, takšna zasnova omogoča razvrščanje uporabnikovih zahtevkov še predenj ti dosežejo spletno mesto, kar zmanjša količino poslanih in prejetih podatkov.
+
+Uporabljena programska oprema:
+* [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html)
+* [privoxy](https://www.privoxy.org/)
+* [tinysrv](https://github.com/jaka/tinysrv/)
+
 ### Namestitev
 
 Namestitev zahteva nekaj tehničnega znanja.
+
+## Pomoč
+
+Pomoč se izvaja preko [zahtevkov](https://github.com/soteria-nou/installation/issues).
 
