@@ -28,11 +28,11 @@ Uporabljena programska oprema:
 
 #### Skica delovanja
 
-Strežnik DNS razvrsti uporabnikov zahtevek _glede na domeno_:
+A) Ko uporabnik poda zahtevek po spletnih strani in če ta ne vsebuje IP naslova, DNS strežnik razvrsti uporabnikov zahtevek _glede na domeno_:
 
 | pravilo | razlaga |
 |---|---|
-| `blk` | zahtevek se preusmeri na neobstoječi naslov |
+| `blk` | zahtevek se preusmeri na neobstoječi naslov (zahtevek se zavrže) |
 | `hsn` | zahtevek ne sledi naslovu in se nadomesti s prazno vsebino |
 | `hsr` | zahtevek sledi naslovu ali se nadomesti s prazno vsebino |
 | `jun` | zahtevek ne sledi naslovu in se nadomesti s vsebino, ki zapre okno |
@@ -40,17 +40,18 @@ Strežnik DNS razvrsti uporabnikov zahtevek _glede na domeno_:
 | `rtl` | zahtevek se preusmeri na lokalni strežnik |
 | `rtp` | zahtevek se preusmeri na lokalni posrednik |
 | `rts` | zahtevek se preusmeri na zunanji strežnik |
-| sicer | zahtevek se razreši v ustrezni naslov |
+| sicer | zahtevek se razreši v ustrezni IP naslov |
 
-Požarni zid zavrne uporabnikov zahtevek _glede na IP naslov_, če je IP naslov na seznamu `blkip`, oziroma ga preusmeri na lokalni posrednik (pravilo `rtpip`).
+Če je zahtevek sledil naslovu, mora uporabnik ponovno podati zahtevek.
 
-Lokalni posrednik zavrne uporabnikov zahtevek po spletni strani _glede na vsebino_ glede na pravila seznama `action` ali obdela vrnjeno vsebino glede na pravila `filter`.
+B) Na tem mestu je IP naslov že poznan in če zahtevek ni bil preusmerjen, požarni zid zavrne uporabnikov zahtevek _glede na IP naslov_, če je IP naslov na seznamu `blkip`, oziroma ga preusmeri na lokalni posrednik, če je IP naslov na seznamu `rtpip`.
+
+C) Če je bil zahtevek preusmerjen na lokalni posrednik, posrednik zavrne uporabnikov zahtevek po spletni strani _glede na vsebino zahtevka_ po pravilih `action` ali obdela vrnjeno vsebino zahtevka glede na pravila `filter`. 
 
 ### Namestitev
 
-Namestitev zahteva nekaj tehničnega znanja.
+Namestitev zahteva nekaj tehničnega znanja, a ni omejena na posebno strojno ali programsko opremo, vendar se priporoča programska oprema [Openwrt](https://openwrt.org/), kamor je potrebno namestiti zgoraj omenjeno programsko opremo.
 
 ## Pomoč
 
 Pomoč se izvaja preko [zahtevkov](https://github.com/soteria-nou/installation/issues).
-
