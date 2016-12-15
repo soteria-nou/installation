@@ -52,6 +52,27 @@ C) Če je bil zahtevek preusmerjen na lokalni posrednik, posrednik zavrne uporab
 
 Namestitev zahteva nekaj tehničnega znanja, a ni omejena na posebno strojno ali programsko opremo, vendar se priporoča programska oprema [Openwrt](https://openwrt.org/), kamor je potrebno namestiti zgoraj omenjeno programsko opremo.
 
+Sistem lahko deluje v dveh načinih: neposredno in posredno. Prednost neposrednega načina je odsotnost kakršnega koli posega v naprave, na katerih želimo izboljšati uporabniško izkušnjo. Ta način je primeren ob velikem številu naprav.
+
+#### Točka A (neposredno)
+
+Najprej se potrebuje 8 IP naslovov, katere se pripne lokalni zanki. IP naslovi morajo biti zasebni (RFC 1918) in prosti.
+```
+config interface 'soteria'
+        option ifname 'lo'
+        option proto 'static'
+        list ipaddr '198.51.100.129'
+        list ipaddr '198.51.100.130'
+        list ipaddr '198.51.100.131'
+        list ipaddr '198.51.100.132'
+        list ipaddr '198.51.100.133'
+        list ipaddr '198.51.100.134'
+        list ipaddr '198.51.100.135'
+        list ipaddr '198.51.100.136'
+        option netmask '255.255.255.240'
+```
+Na te naslove se obesi storitve lokalnih strežnikov.
+
 ## Pomoč
 
 Pomoč se izvaja preko [zahtevkov](https://github.com/soteria-nou/installation/issues).
