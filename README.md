@@ -56,7 +56,7 @@ Sistem lahko deluje v dveh načinih: neposredno in posredno. Prednost neposredne
 
 #### Točka A (neposredno)
 
-Najprej se potrebuje 8 IP naslovov, katere se pripne lokalni zanki. IP naslovi morajo biti zasebni (RFC 1918) in prosti.
+Najprej se potrebuje 8 IP naslovov, katere se pripne lokalni zanki. IP naslovi morajo biti prosti, zato je najbolje vzeti zasebne naslove (RFC 1918).
 ```
 config interface 'soteria'
         option ifname 'lo'
@@ -72,6 +72,13 @@ config interface 'soteria'
         option netmask '255.255.255.240'
 ```
 Na te naslove se obesi storitve lokalnih strežnikov.
+
+Za potrebe točke A) iz skice delovanje je potrebno datoteko `/etc/config/dhcp` dopolniti z
+```
+config dnsmasq
+	list addnhosts '/tmp/dns'
+```
+To bo omogočilo programu _dnsmasq_ razvrščanje zahtevkov po domenah.
 
 ## Pomoč
 
