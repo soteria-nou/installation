@@ -59,17 +59,17 @@ Sistem lahko deluje v dveh načinih: neposredno in posredno. Prednost neposredne
 Najprej se potrebuje 8 IP naslovov, katere se pripne lokalni zanki. IP naslovi morajo biti prosti, zato je najbolje vzeti zasebne naslove (RFC 1918).
 ```
 config interface 'soteria'
-        option ifname 'lo'
-        option proto 'static'
-        list ipaddr '198.51.100.129'
-        list ipaddr '198.51.100.130'
-        list ipaddr '198.51.100.131'
-        list ipaddr '198.51.100.132'
-        list ipaddr '198.51.100.133'
-        list ipaddr '198.51.100.134'
-        list ipaddr '198.51.100.135'
-        list ipaddr '198.51.100.136'
-        option netmask '255.255.255.240'
+	option ifname 'lo'
+	option proto 'static'
+	list ipaddr '198.51.100.129'
+	list ipaddr '198.51.100.130'
+	list ipaddr '198.51.100.131'
+	list ipaddr '198.51.100.132'
+	list ipaddr '198.51.100.133'
+	list ipaddr '198.51.100.134'
+	list ipaddr '198.51.100.135'
+	list ipaddr '198.51.100.136'
+	option netmask '255.255.255.240'
 ```
 Na te naslove se obesi storitve lokalnih strežnikov.
 
